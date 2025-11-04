@@ -1,6 +1,6 @@
 ﻿using SD_SE_2.Domain.Entities;
 
-namespace SD_SE_2.Domain.Services;
+namespace SD_SE_2.Domain.Services.Decorators;
 
 public class ValidationFinancialServiceDecorator : IFinancialService
 {
@@ -23,20 +23,8 @@ public class ValidationFinancialServiceDecorator : IFinancialService
         _decorated.UpdateOperation(operation);
     }
 
-    public void DeleteOperation(Guid operationId)
-    {
-        _decorated.DeleteOperation(operationId);
-    }
-
-    public decimal RecalculateBalance(Guid accountId)
-    {
-        return _decorated.RecalculateBalance(accountId);
-    }
-
-    public void RecalculateAllBalances()
-    {
-        _decorated.RecalculateAllBalances();
-    }
+    public void DeleteOperation(Guid operationId) => _decorated.DeleteOperation(operationId);
+    public decimal RecalculateBalance(Guid accountId) => _decorated.RecalculateBalance(accountId);
 
     private void ValidateOperation(Operation operation)
     {

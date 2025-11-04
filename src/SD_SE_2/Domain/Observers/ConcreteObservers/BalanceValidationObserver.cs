@@ -7,9 +7,9 @@ public class BalanceValidationObserver : IOperationObserver
 {
     public void OnOperationAdded(Operation operation)
     {
-        if (operation.Amount > 100000)
+        if (operation.Amount <= 0)
         {
-            Console.WriteLine($"[VALIDATION] Large operation detected: {operation.Amount:C}");
+            Console.WriteLine($"[VALIDATION ERROR] Invalid amount: {operation.Amount} - {operation.Description}");
         }
     }
 

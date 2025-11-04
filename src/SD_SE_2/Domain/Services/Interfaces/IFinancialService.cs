@@ -8,5 +8,4 @@ public interface IFinancialService
     void UpdateOperation(Operation operation);
     void DeleteOperation(Guid operationId);
     decimal RecalculateBalance(Guid accountId);
-    void RecalculateAllBalances();
 }

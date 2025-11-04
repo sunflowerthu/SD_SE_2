@@ -1,80 +1,41 @@
 ﻿using SD_SE_2.Domain.Entities;
-
-namespace SD_SE_2.Domain.Services;
+using SD_SE_2.Domain.Services;
 
 public class TimingFinancialServiceDecorator : IFinancialService
 {
     private readonly IFinancialService _decorated;
-    private readonly Action<string> _logger;
 
-    public TimingFinancialServiceDecorator(IFinancialService decorated, Action<string>? logger = null)
+    public TimingFinancialServiceDecorator(IFinancialService decorated)
     {
         _decorated = decorated;
-        _logger = logger ?? Console.WriteLine;
     }
 
     public void AddOperation(Operation operation)
     {
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        try
-        {
-            _decorated.AddOperation(operation);
-        }
-        finally
-        {
-            _logger($"[TIMING] AddOperation completed in {stopwatch.ElapsedMilliseconds}ms");
-        }
+        _decorated.AddOperation(operation);
+        Console.WriteLine($"[TIMING] AddOperation completed in {stopwatch.ElapsedMilliseconds}ms");
     }
 
     public void UpdateOperation(Operation operation)
     {
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        try
-        {
-            _decorated.UpdateOperation(operation);
-        }
-        finally
-        {
-            _logger($"[TIMING] UpdateOperation completed in {stopwatch.ElapsedMilliseconds}ms");
-        }
+        _decorated.UpdateOperation(operation);
+        Console.WriteLine($"[TIMING] UpdateOperation completed in {stopwatch.ElapsedMilliseconds}ms");
     }
 
     public void DeleteOperation(Guid operationId)
     {
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        try
-        {
-            _decorated.DeleteOperation(operationId);
-        }
-        finally
-        {
-            _logger($"[TIMING] DeleteOperation completed in {stopwatch.ElapsedMilliseconds}ms");
-        }
+        _decorated.DeleteOperation(operationId);
+        Console.WriteLine($"[TIMING] DeleteOperation completed in {stopwatch.ElapsedMilliseconds}ms");
     }
 
     public decimal RecalculateBalance(Guid accountId)
     {
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        try
-        {
-            return _decorated.RecalculateBalance(accountId);
-        }
-        finally
-        {
-            _logger($"[TIMING] RecalculateBalance completed in {stopwatch.ElapsedMilliseconds}ms");
-        }
-    }
-
-    public void RecalculateAllBalances()
-    {
-        var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-        try
-        {
-            _decorated.RecalculateAllBalances();
-        }
-        finally
-        {
-            _logger($"[TIMING] RecalculateAllBalances completed in {stopwatch.ElapsedMilliseconds}ms");
-        }
+        var result = _decorated.RecalculateBalance(accountId);
+        Console.WriteLine($"[TIMING] RecalculateBalance completed in {stopwatch.ElapsedMilliseconds}ms");
+        return result;
     }
 }
