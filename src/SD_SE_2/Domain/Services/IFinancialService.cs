@@ -1,6 +1,12 @@
-﻿namespace SD_SE_2.Domain.Services;
+﻿using SD_SE_2.Domain.Entities;
 
-public class IFinancialService
+namespace SD_SE_2.Domain.Services;
+
+public interface IFinancialService
 {
-    
+    void AddOperation(Operation operation);
+    void UpdateOperation(Operation operation);
+    void DeleteOperation(Guid operationId);
+    decimal RecalculateBalance(Guid accountId);
+    void RecalculateAllBalances();
 }

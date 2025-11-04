@@ -57,7 +57,7 @@ public abstract class BaseRepository<T> : IRepository<T> where T : Entity
         }
     }
 
-    public virtual List<T> Find(Func<T, bool> predicate)
+    public List<T> Find(Func<T, bool> predicate)
     {
         return _entities.Where(predicate).ToList();
     }

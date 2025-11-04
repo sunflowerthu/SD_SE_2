@@ -2,7 +2,7 @@
 
 public class BankAccount : Entity
 {
-    public decimal Balance { get; private set; }
+    public decimal Balance { get; internal set; }
     public string Currency { get; set; } = "RUB";
     public bool IsActive { get; set; } = true;
         
@@ -10,5 +10,10 @@ public class BankAccount : Entity
     {
         Name = name;
         Balance = initialBalance;
+    }
+
+    public void UpdateBalance(decimal balanceChange)
+    {
+        Balance = balanceChange;
     }
 }
