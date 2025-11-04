@@ -3,5 +3,5 @@
 public enum OperationType
 {
     Income,
-    Outcome
+    Expense
 }

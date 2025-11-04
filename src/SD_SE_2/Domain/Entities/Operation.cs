@@ -8,11 +8,11 @@ public class Operation : Entity
     public Guid AccountId { get; }
     public decimal Amount { get; }
     public DateTime Date { get; }
-    public string Description { get; } = string.Empty;
-    public int CategoryId { get; private set; }
+    public string Description { get; }
+    public Guid CategoryId { get; private set; }
 
     public Operation(Guid operationId, OperationType type,
-        Guid accountId, decimal amount, int categoryId, string description = null)
+        Guid accountId, decimal amount, Guid categoryId, string description = "")
     {
         Amount = amount;
         Description = description;
@@ -22,6 +22,4 @@ public class Operation : Entity
         Date = DateTime.Now;
         Name = $"Operation_{Id.ToString().Substring(0, 8)}";
     }
-        
-    public Operation() { }
 }

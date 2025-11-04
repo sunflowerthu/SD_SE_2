@@ -11,6 +11,4 @@ public class Category : Entity
         Type = type;
         Name = name;
     }
-    
-    public Category() { }
 }

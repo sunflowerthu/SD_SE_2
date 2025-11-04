@@ -5,8 +5,6 @@ public class BankAccount : Entity
     public decimal Balance { get; private set; }
     public string Currency { get; set; } = "RUB";
     public bool IsActive { get; set; } = true;
-
-    public BankAccount() { }
         
     public BankAccount(string name, decimal initialBalance = 0)
     {
