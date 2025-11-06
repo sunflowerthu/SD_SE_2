@@ -1,24 +1,25 @@
 ﻿using SD_SE_2.Domain.Entities;
 using SD_SE_2.Domain.Enums;
-using SD_SE_2.Domain.Observers.Interfaces;
+using SD_SE_2.Domain.Observers.Events;
+using SD_SE_2.Domain.Observers.Publisher;
 using SD_SE_2.Domain.Repositories;
 
 namespace SD_SE_2.Domain.Services;
 
-public class FinancialService : IFinancialService
+public class OperationService
 {
     private readonly OperationRepository _operationRepository;
     private readonly BankAccountRepository _accountRepository;
-    private readonly List<IOperationObserver> _observers;
+    private readonly IEventPublisher _eventPublisher;
 
-    public FinancialService(
-        OperationRepository operationRepository, 
+    public OperationService(
+        OperationRepository operationRepository,
         BankAccountRepository accountRepository,
-        List<IOperationObserver> observers)
+        IEventPublisher eventPublisher)
     {
         _operationRepository = operationRepository;
         _accountRepository = accountRepository;
-        _observers = observers;
+        _eventPublisher = eventPublisher;
     }
 
     public void AddOperation(Operation operation)
@@ -26,10 +27,7 @@ public class FinancialService : IFinancialService
         _operationRepository.Add(operation);
         UpdateAccountBalance(operation.AccountId, operation.Amount, operation.Type);
         
-        foreach (var observer in _observers)
-        {
-            observer.OnOperationAdded(operation);
-        }
+        _eventPublisher.Publish(new OperationAddedEvent(operation));
     }
 
     public void UpdateOperation(Operation operation)
@@ -41,10 +39,7 @@ public class FinancialService : IFinancialService
             _operationRepository.Update(operation);
             UpdateAccountBalance(operation.AccountId, operation.Amount, operation.Type);
             
-            foreach (var observer in _observers)
-            {
-                observer.OnOperationUpdated(oldOperation, operation);
-            }
+            _eventPublisher.Publish(new OperationUpdatedEvent(oldOperation, operation));
         }
     }
 
@@ -56,10 +51,7 @@ public class FinancialService : IFinancialService
             UpdateAccountBalance(operation.AccountId, -operation.Amount, operation.Type);
             _operationRepository.Delete(operationId);
             
-            foreach (var observer in _observers)
-            {
-                observer.OnOperationDeleted(operation);
-            }
+            _eventPublisher.Publish(new OperationDeletedEvent(operation));
         }
     }
 
@@ -85,20 +77,8 @@ public class FinancialService : IFinancialService
         account.Balance = newBalance;
         _accountRepository.Update(account);
         
-        foreach (var observer in _observers)
-        {
-            observer.OnBalanceRecalculated(accountId, newBalance);
-        }
+        _eventPublisher.Publish(new BalanceRecalculatedEvent(accountId, newBalance));
         
         return newBalance;
-    }
-
-    public void RecalculateAllBalances()
-    {
-        var accounts = _accountRepository.GetAll();
-        foreach (var account in accounts)
-        {
-            RecalculateBalance(account.Id);
-        }
     }
 }
