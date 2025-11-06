@@ -14,6 +14,6 @@ public class BankAccount : Entity
 
     public void UpdateBalance(decimal balanceChange)
     {
-        Balance = balanceChange;
+        Balance += balanceChange;
     }
 }

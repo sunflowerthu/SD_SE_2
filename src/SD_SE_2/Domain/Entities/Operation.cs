@@ -11,7 +11,7 @@ public class Operation : Entity
     public string Description { get; }
     public Guid CategoryId { get; private set; }
 
-    public Operation(Guid operationId, OperationType type,
+    public Operation(OperationType type,
         Guid accountId, decimal amount, Guid categoryId, string description = "")
     {
         Amount = amount;
