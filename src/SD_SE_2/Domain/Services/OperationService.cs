@@ -3,10 +3,12 @@ using SD_SE_2.Domain.Enums;
 using SD_SE_2.Domain.Observers.Events;
 using SD_SE_2.Domain.Observers.Publisher;
 using SD_SE_2.Domain.Repositories;
+using SD_SE_2.Domain.Services.Interfaces;
 
 namespace SD_SE_2.Domain.Services;
 
-public class OperationService
+
+public class OperationService : IOperationService
 {
     private readonly OperationRepository _operationRepository;
     private readonly BankAccountRepository _accountRepository;

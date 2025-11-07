@@ -1,8 +1,8 @@
 ﻿using SD_SE_2.Domain.Entities;
 
-namespace SD_SE_2.Domain.Services;
+namespace SD_SE_2.Domain.Services.Interfaces;
 
-public interface IFinancialService
+public interface IOperationService
 {
     void AddOperation(Operation operation);
     void UpdateOperation(Operation operation);
