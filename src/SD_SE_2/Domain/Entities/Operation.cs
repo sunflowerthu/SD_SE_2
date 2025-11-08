@@ -1,15 +1,16 @@
 ﻿using SD_SE_2.Domain.Enums;
+using SD_SE_2.Domain.InputOutput;
 
 namespace SD_SE_2.Domain.Entities;
 
-public class Operation : Entity
+public class Operation : Entity, IExportable
 {
-    public OperationType Type { get; }
-    public Guid AccountId { get; }
-    public decimal Amount { get; }
-    public DateTime Date { get; }
-    public string Description { get; }
-    public Guid CategoryId { get; private set; }
+    public OperationType Type { get; init; }
+    public Guid AccountId { get; init; }
+    public decimal Amount { get; init; }
+    public DateTime Date { get; init; }
+    public string Description { get; init; }
+    public Guid CategoryId { get; set; }
 
     public Operation(OperationType type,
         Guid accountId, decimal amount, Guid categoryId, string description = "")
@@ -21,5 +22,13 @@ public class Operation : Entity
         Type = type;
         Date = DateTime.Now;
         Name = $"Operation_{Id.ToString().Substring(0, 8)}";
+    }
+
+    public Operation()
+    { }
+
+    public void AcceptExporter(Exporter exporter)
+    {
+        exporter.Export(this);
     }
 }

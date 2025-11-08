@@ -1,9 +1,10 @@
-﻿namespace SD_SE_2.Domain.Entities;
+﻿using SD_SE_2.Domain.InputOutput;
 
-public class BankAccount : Entity
+namespace SD_SE_2.Domain.Entities;
+
+public class BankAccount : Entity, IExportable
 {
     public decimal Balance { get; internal set; }
-    public string Currency { get; set; } = "RUB";
     public bool IsActive { get; set; } = true;
         
     public BankAccount(string name, decimal initialBalance = 0)
@@ -12,8 +13,16 @@ public class BankAccount : Entity
         Balance = initialBalance;
     }
 
+    public BankAccount()
+    { }
+
     public void UpdateBalance(decimal balanceChange)
     {
         Balance += balanceChange;
+    }
+
+    public void AcceptExporter(Exporter exporter)
+    {
+        exporter.Export(this);
     }
 }
