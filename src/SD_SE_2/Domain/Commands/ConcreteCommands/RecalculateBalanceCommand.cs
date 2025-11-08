@@ -1,22 +1,23 @@
 ﻿using SD_SE_2.Domain.Repositories;
 using SD_SE_2.Domain.Services;
+using SD_SE_2.Domain.Services.Interfaces;
 
 namespace SD_SE_2.Domain.Commands;
 
 public class RecalculateBalanceCommand : ICommand
 {
     private readonly Guid _accountId;
-    private readonly IFinancialService _financialService;
-    private readonly BankAccountRepository _accountRepository;
+    private readonly IOperationService _operationService;
+    private readonly IBankAccountRepository _accountRepository;
     private decimal _previousBalance;
     private bool _executed = false;
 
     public string Description => $"Recalculate balance for account: {_accountId}";
 
-    public RecalculateBalanceCommand(Guid accountId, IFinancialService financialService, BankAccountRepository accountRepository)
+    public RecalculateBalanceCommand(Guid accountId, IOperationService operationService, IBankAccountRepository accountRepository)
     {
         _accountId = accountId;
-        _financialService = financialService;
+        _operationService = operationService;
         _accountRepository = accountRepository;
     }
 
@@ -27,7 +28,7 @@ public class RecalculateBalanceCommand : ICommand
             var account = _accountRepository.GetById(_accountId);
             _previousBalance = account?.Balance ?? 0;
             
-            _financialService.RecalculateBalance(_accountId);
+            _operationService.RecalculateBalance(_accountId);
             _executed = true;
         }
     }

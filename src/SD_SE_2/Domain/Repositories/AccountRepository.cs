@@ -2,7 +2,7 @@
 
 namespace SD_SE_2.Domain.Repositories;
 
-public class BankAccountRepository : BaseRepository<BankAccount>
+public class BankAccountRepository : BaseRepository<BankAccount>, IBankAccountRepository
 {
     public BankAccountRepository() : base("BankAccount") { }
 

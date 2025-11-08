@@ -1,6 +1,19 @@
-﻿namespace SD_SE_2.Domain.Factories;
+﻿using SD_SE_2.Domain.Entities;
+using SD_SE_2.Domain.Enums;
+using SD_SE_2.Domain.Repositories;
 
-public class CategoryFactory
+namespace SD_SE_2.Domain.Factories;
+
+public class CategoryFactory(CategoryRepository categoryRepository) : ICategoryFactory
 {
-    
+    public Category CreateCategory(string name, CategoryType type)
+    {
+        if (categoryRepository.ExistByName(name))
+        {
+            throw new ArgumentException("Category with name " + name + " is exist");
+        }
+
+        var category = new Category(name, type);
+        return category;
+    }
 }

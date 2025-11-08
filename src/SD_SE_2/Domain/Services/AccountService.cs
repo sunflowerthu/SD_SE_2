@@ -7,10 +7,10 @@ namespace SD_SE_2.Domain.Services;
 
 public class AccountService
 {
-    private readonly BankAccountRepository _accountRepository;
+    private readonly IBankAccountRepository _accountRepository;
     private readonly IEventPublisher _eventPublisher;
 
-    public AccountService(BankAccountRepository accountRepository, IEventPublisher eventPublisher)
+    public AccountService(IBankAccountRepository accountRepository, IEventPublisher eventPublisher)
     {
         _accountRepository = accountRepository;
         _eventPublisher = eventPublisher;

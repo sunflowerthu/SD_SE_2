@@ -9,16 +9,14 @@ public class AddOperationCommand : ICommand
 {
     private readonly Operation _operation;
     private readonly IOperationService _operationService;
-    private readonly OperationRepository _operationRepository;
     private bool _executed = false;
 
     public string Description => $"Add operation: {_operation.Description}";
 
-    public AddOperationCommand(Operation operation, IOperationService operationService, OperationRepository operationRepository)
+    public AddOperationCommand(Operation operation, IOperationService operationService)
     {
         _operation = operation;
         _operationService = operationService;
-        _operationRepository = operationRepository;
     }
 
     public void Execute()
@@ -34,7 +32,7 @@ public class AddOperationCommand : ICommand
     {
         if (_executed)
         {
-            _financialService.DeleteOperation(_operation.Id);
+            _operationService.DeleteOperation(_operation.Id);
             _executed = false;
         }
     }

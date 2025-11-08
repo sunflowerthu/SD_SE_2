@@ -3,7 +3,7 @@ using SD_SE_2.Domain.Enums;
 
 namespace SD_SE_2.Domain.Repositories;
 
-public class CategoryRepository : BaseRepository<Category>
+public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
 {
     public CategoryRepository() : base("Category") { }
 
@@ -19,4 +19,17 @@ public class CategoryRepository : BaseRepository<Category>
 
     public List<Category> GetIncomeCategories() => GetCategoriesByType(CategoryType.Income);
     public List<Category> GetExpenseCategories() => GetCategoriesByType(CategoryType.Expense);
+
+    public bool ExistByName(string name)
+    {
+        foreach (Category category in _entities)
+        {
+            if (category.Name == name)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

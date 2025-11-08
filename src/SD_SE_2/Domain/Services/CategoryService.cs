@@ -6,33 +6,24 @@ using SD_SE_2.Domain.Repositories;
 
 namespace SD_SE_2.Domain.Services;
 
-public class CategoryService
+public class CategoryService(ICategoryRepository categoryRepository, IEventPublisher eventPublisher)
 {
-    private readonly CategoryRepository _categoryRepository;
-    private readonly IEventPublisher _eventPublisher;
-
-    public CategoryService(CategoryRepository categoryRepository, IEventPublisher eventPublisher)
-    {
-        _categoryRepository = categoryRepository;
-        _eventPublisher = eventPublisher;
-    }
-
-    public void CreateCategory(string name, CategoryType type)
+    public void CreateCategory(string name, CategoryType type) // TODO: удалить нахуй, сделать по аналогии с CreateOperation
     {
         // и сюда фабрику, хз как то надо по красоте сделать
         var category = new Category(name, type);
-        _categoryRepository.Add(category);
+        categoryRepository.Add(category);
         
-        _eventPublisher.Publish(new CategoryCreatedEvent(category));
+        eventPublisher.Publish(new CategoryCreatedEvent(category));
     }
 
     public void UpdateCategory(Category category)
     {
-        _categoryRepository.Update(category);
+        categoryRepository.Update(category);
     }
 
     public void DeleteCategory(Guid categoryId)
     {
-        _categoryRepository.Delete(categoryId);
+        categoryRepository.Delete(categoryId);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace SD_SE_2.Domain.Commands;
 
-public class CommandManager
+public class CommandManager : ICommandManager
 {
     private readonly Stack<ICommand> _undoStack = new();
     private readonly Stack<ICommand> _redoStack = new();

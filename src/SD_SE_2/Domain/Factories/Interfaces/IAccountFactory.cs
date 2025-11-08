@@ -1,6 +1,8 @@
-﻿namespace SD_SE_2.Domain.Factories;
+﻿using SD_SE_2.Domain.Entities;
 
-public class IAccountFactory
+namespace SD_SE_2.Domain.Factories;
+
+public interface IAccountFactory
 {
-    
+    BankAccount CreateAccount(string name, decimal initialBalance);
 }

@@ -3,7 +3,7 @@ using SD_SE_2.Domain.Enums;
 
 namespace SD_SE_2.Domain.Repositories;
 
-public class OperationRepository : BaseRepository<Operation>
+public class OperationRepository : BaseRepository<Operation>, IOperationRepository
 {
     public OperationRepository() : base("Operation") { }
 

@@ -1,6 +1,9 @@
-﻿namespace SD_SE_2.Domain.Factories;
+﻿using SD_SE_2.Domain.Entities;
+using SD_SE_2.Domain.Enums;
 
-public class ICategoryFactory
+namespace SD_SE_2.Domain.Factories;
+
+public interface ICategoryFactory
 {
-    
+    Category CreateCategory(string name, CategoryType type);
 }
