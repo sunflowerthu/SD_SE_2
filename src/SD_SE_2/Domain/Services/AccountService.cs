@@ -2,36 +2,42 @@
 using SD_SE_2.Domain.Observers.Events;
 using SD_SE_2.Domain.Observers.Publisher;
 using SD_SE_2.Domain.Repositories;
+using SD_SE_2.Domain.Services.Interfaces;
 
 namespace SD_SE_2.Domain.Services;
 
-public class AccountService
+public class AccountService(
+    IBankAccountRepository accountRepository, 
+    IEventPublisher eventPublisher) : IAccountService
 {
-    private readonly IBankAccountRepository _accountRepository;
-    private readonly IEventPublisher _eventPublisher;
-
-    public AccountService(IBankAccountRepository accountRepository, IEventPublisher eventPublisher)
+    public void AddAccount(BankAccount account)
     {
-        _accountRepository = accountRepository;
-        _eventPublisher = eventPublisher;
-    }
-
-    public void CreateAccount(string name, decimal initialBalance = 0)
-    {
-        // сюда надо бы фабрику наверное или хз
-        var account = new BankAccount(name,initialBalance);
-        _accountRepository.Add(account);
-        
-        _eventPublisher.Publish(new BankAccountCreatedEvent(account));
+        accountRepository.Add(account);
+        eventPublisher.Publish(new AccountAddedEvent(account));
     }
 
     public void UpdateAccount(BankAccount account)
     {
-        _accountRepository.Update(account);
+        var oldAccount = accountRepository.GetById(account.Id);
+        if (oldAccount != null)
+        {
+            accountRepository.Update(account);
+            eventPublisher.Publish(new AccountUpdatedEvent(oldAccount, account));
+        }
     }
 
-    public void DeleteAccount(Guid accountId)
+    public void DeleteAccount(BankAccount account)
     {
-        _accountRepository.Delete(accountId);
+        var accountExists = accountRepository.GetById(account.Id);
+        if (accountExists != null)
+        { 
+            accountRepository.Delete(account.Id);
+            
+            eventPublisher.Publish(new AccountDeletedEvent(account));
+        }
+        else
+        {
+            throw new NullReferenceException("Account not found");
+        }
     }
 }

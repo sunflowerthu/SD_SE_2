@@ -2,12 +2,11 @@
 
 namespace SD_SE_2.Domain.Observers.Events;
 
-
-public class BankAccountCreatedEvent : DomainEvent
+public class AccountAddedEvent : DomainEvent
 {
     public BankAccount Account { get; }
 
-    public BankAccountCreatedEvent(BankAccount account)
+    public AccountAddedEvent(BankAccount account)
     {
         Account = account;
     }

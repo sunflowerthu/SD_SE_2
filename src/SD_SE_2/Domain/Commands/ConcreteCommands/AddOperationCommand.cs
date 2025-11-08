@@ -32,7 +32,7 @@ public class AddOperationCommand : ICommand
     {
         if (_executed)
         {
-            _operationService.DeleteOperation(_operation.Id);
+            _operationService.DeleteOperation(_operation);
             _executed = false;
         }
     }

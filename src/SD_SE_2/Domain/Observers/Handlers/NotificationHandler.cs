@@ -8,8 +8,7 @@ public class NotificationHandler
     public NotificationHandler(IEventPublisher eventPublisher)
     {
         eventPublisher.Subscribe<OperationAddedEvent>(OnOperationAdded);
-        eventPublisher.Subscribe<CategoryCreatedEvent>(OnCategoryCreated);
-        eventPublisher.Subscribe<BankAccountCreatedEvent>(OnAccountCreated);
+        eventPublisher.Subscribe<CategoryCreatedEvent>(OnCategoryCreated); 
     }
 
     private void OnOperationAdded(OperationAddedEvent myEvent)
@@ -23,10 +22,5 @@ public class NotificationHandler
     private void OnCategoryCreated(CategoryCreatedEvent myEvent)
     {
         Console.WriteLine($"[NOTIFICATION] New category created: {myEvent.Category.Name}");
-    }
-
-    private void OnAccountCreated(BankAccountCreatedEvent myEvent)
-    {
-        Console.WriteLine($"[NOTIFICATION] New account created: {myEvent.Account.Name}");
     }
 }

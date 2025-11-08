@@ -6,6 +6,5 @@ public interface IOperationService
 {
     void AddOperation(Operation operation);
     void UpdateOperation(Operation operation);
-    void DeleteOperation(Guid operationId);
-    decimal RecalculateBalance(Guid accountId);
+    void DeleteOperation(Operation operation);
 }

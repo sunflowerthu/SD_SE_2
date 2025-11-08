@@ -35,15 +35,19 @@ public class OperationService(
         }
     }
 
-    public void DeleteOperation(Guid operationId)
+    public void DeleteOperation(Operation operation)
     {
-        var operation = operationRepository.GetById(operationId);
-        if (operation != null)
+        var operationExists = operationRepository.GetById(operation.Id);
+        if (operationExists != null)
         {
             UpdateAccountBalance(operation.AccountId, -operation.Amount, operation.Type);
-            operationRepository.Delete(operationId);
+            operationRepository.Delete(operation.Id);
             
             eventPublisher.Publish(new OperationDeletedEvent(operation));
+        }
+        else
+        {
+            throw new NullReferenceException("Operation not found");
         }
     }
 
@@ -61,20 +65,5 @@ public class OperationService(
             accountRepository.Update(account);
         }
     }
-
-    public decimal RecalculateBalance(Guid accountId)
-    {
-        var account = accountRepository.GetById(accountId);
-        if (account == null) return 0;
-
-        var operations = operationRepository.GetByAccountId(accountId);
-        var newBalance = operations.Sum(o => o.Type == OperationType.Income ? o.Amount : -o.Amount);
-        
-        account.Balance = newBalance;
-        accountRepository.Update(account);
-        
-        eventPublisher.Publish(new BalanceRecalculatedEvent(accountId, newBalance));
-        
-        return newBalance;
-    }
+    
 }
