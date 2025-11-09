@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 public class JsonImporter(
-    IBankAccountRepository accountRepository,
+    IAccountRepository accountRepository,
     ICategoryRepository categoryRepository,
     IOperationRepository operationRepository) : Importer
 {

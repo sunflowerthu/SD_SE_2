@@ -12,9 +12,9 @@
         /// Конструктор для меню
         /// </summary>
         /// <param name="menuItems"> Элементы меню</param>
-        public Menu(List<IMenuItem> menuItems)
+        public Menu(IEnumerable<IMenuItem> menuItems)
         {
-            _menuItems = menuItems;
+            _menuItems = new List<IMenuItem>(menuItems);
             _selectedIndex = 0;
         }
 
@@ -32,7 +32,7 @@
                     if (i == _selectedIndex)
                     {
                         Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        Console.WriteLine($"V(=^･ω･^=)v  > {i+1}. {_menuItems[i].Title} <");
+                        Console.WriteLine($"> {i+1}. {_menuItems[i].Title} <");
                         Console.ResetColor();
                     }
                     else

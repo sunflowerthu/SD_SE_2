@@ -8,14 +8,14 @@ namespace SD_SE_2.BaseCatalogue.Facades;
 
 public class DataTransferFacade : IDataTransferFacade
 {
-    private readonly IBankAccountRepository _accountRepository;
+    private readonly IAccountRepository _accountRepository;
     private readonly ICategoryRepository _categoryRepository;
     private readonly IOperationRepository _operationRepository;
     private readonly Dictionary<string, Exporter> _exporters;
     private readonly Dictionary<string, Importer> _importers;
 
     public DataTransferFacade(
-        IBankAccountRepository accountRepository,
+        IAccountRepository accountRepository,
         ICategoryRepository categoryRepository,
         IOperationRepository operationRepository,
         IEnumerable<Exporter> exporters,

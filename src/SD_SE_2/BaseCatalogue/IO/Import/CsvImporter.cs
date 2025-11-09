@@ -5,7 +5,7 @@ using SD_SE_2.Domain.Repositories;
 namespace SD_SE_2.Domain.InputOutput.Import;
 
 public class CsvImporter(
-    IBankAccountRepository accountRepository,
+    IAccountRepository accountRepository,
     ICategoryRepository categoryRepository,
     IOperationRepository operationRepository) : Importer
 {

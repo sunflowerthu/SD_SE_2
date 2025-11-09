@@ -1,9 +1,10 @@
 ﻿using SD_SE_2.BaseCatalogue.Facades;
 using SD_SE_2.Domain.UI.MenuDirectory;
+using SD_SE_2.Facades;
 
 namespace SD_SE_2.Domain.UI.MenuItems;
 
-public class ExportMenuItem(DataTransferFacade dataTransferFacade) : IMenuItem
+public class ExportMenuItem(IDataTransferFacade dataTransferFacade) : IMenuItem
 {
     public string Title { get; } = "Export Data";
 

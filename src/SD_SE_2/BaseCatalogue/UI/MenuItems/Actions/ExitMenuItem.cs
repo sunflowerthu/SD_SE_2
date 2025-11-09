@@ -4,7 +4,7 @@ namespace SD_SE_2.Domain.UI.MenuItems;
 
 public class ExitMenuItem : IMenuItem
 {
-    public string Title { get; } = "Выйти из программы";
+    public string Title { get; } = "Exit";
     public void Select()
     {
         Environment.Exit(0);

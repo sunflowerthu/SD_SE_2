@@ -3,7 +3,7 @@ using SD_SE_2.Facades;
 
 namespace SD_SE_2.Domain.UI.MenuItems;
 
-public class ListAccountsMenuItem(IAccountFacade accountFacade) : IMenuItem
+public class ShowAccountsMenuItem(IAccountFacade accountFacade) : IMenuItem
 {
     public string Title { get; } = "Show all bank accounts";
 

@@ -1,9 +1,10 @@
 ﻿using SD_SE_2.BaseCatalogue.Facades;
 using SD_SE_2.Domain.UI.MenuDirectory;
+using SD_SE_2.Facades;
 
 namespace SD_SE_2.Domain.UI.MenuItems;
 
-public class ImportMenuItem(DataTransferFacade dataTransferFacade) : IMenuItem
+public class ImportMenuItem(IDataTransferFacade dataTransferFacade) : IMenuItem
 {
     public string Title { get; } = "Import Data";
 

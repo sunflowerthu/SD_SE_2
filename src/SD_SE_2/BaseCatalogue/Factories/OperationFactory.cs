@@ -4,7 +4,7 @@ using SD_SE_2.Domain.Repositories;
 
 namespace SD_SE_2.Domain.Factories;
 
-public class OperationFactory(AccountRepository accountRepository, CategoryRepository categoryRepository)
+public class OperationFactory(IAccountRepository accountRepository, ICategoryRepository categoryRepository)
     : IOperationFactory
 {
     public Operation CreateOperation(OperationType type, Guid accountId, decimal amount, Guid categoryId,

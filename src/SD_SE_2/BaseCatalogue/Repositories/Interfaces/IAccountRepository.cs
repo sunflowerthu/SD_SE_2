@@ -2,7 +2,7 @@
 
 namespace SD_SE_2.Domain.Repositories;
 
-public interface IBankAccountRepository : IRepository<BankAccount>
+public interface IAccountRepository : IRepository<BankAccount>
 {
     List<BankAccount> GetActiveBankAccounts();
     List<BankAccount> GetBankAccountsWithMinimumBalance(decimal minBalance);

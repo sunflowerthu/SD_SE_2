@@ -7,7 +7,7 @@ using SD_SE_2.Domain.Services.Interfaces;
 namespace SD_SE_2.Domain.Services;
 
 public class AccountService(
-    IBankAccountRepository accountRepository, 
+    IAccountRepository accountRepository, 
     IEventPublisher eventPublisher) : IAccountService
 {
     public void AddAccount(BankAccount account)

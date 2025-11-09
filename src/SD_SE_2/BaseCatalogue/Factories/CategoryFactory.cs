@@ -4,7 +4,7 @@ using SD_SE_2.Domain.Repositories;
 
 namespace SD_SE_2.Domain.Factories;
 
-public class CategoryFactory(CategoryRepository categoryRepository) : ICategoryFactory
+public class CategoryFactory(ICategoryRepository categoryRepository) : ICategoryFactory
 {
     public Category CreateCategory(string name, CategoryType type)
     {

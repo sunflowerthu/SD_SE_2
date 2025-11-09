@@ -10,7 +10,7 @@ namespace SD_SE_2.Domain.Services;
 
 public class OperationService(
     IOperationRepository operationRepository,
-    IBankAccountRepository accountRepository,
+    IAccountRepository accountRepository,
     IEventPublisher eventPublisher)
     : IOperationService
 {
