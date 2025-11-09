@@ -1,7 +1,6 @@
 ﻿using SD_SE_2.BaseCatalogue.Entities;
-using SD_SE_2.Domain.Entities;
 
-namespace SD_SE_2.Domain.Services.Interfaces;
+namespace SD_SE_2.BaseCatalogue.Services.Interfaces;
 
 public interface ICategoryService
 {

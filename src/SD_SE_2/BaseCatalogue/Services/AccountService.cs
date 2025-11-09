@@ -2,9 +2,9 @@
 using SD_SE_2.BaseCatalogue.Observers.Events;
 using SD_SE_2.BaseCatalogue.Observers.Publisher;
 using SD_SE_2.BaseCatalogue.Repositories.Interfaces;
-using SD_SE_2.Domain.Services.Interfaces;
+using SD_SE_2.BaseCatalogue.Services.Interfaces;
 
-namespace SD_SE_2.Domain.Services;
+namespace SD_SE_2.BaseCatalogue.Services;
 
 public class AccountService(
     IAccountRepository accountRepository, 

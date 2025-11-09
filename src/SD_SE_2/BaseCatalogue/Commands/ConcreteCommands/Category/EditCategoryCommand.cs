@@ -1,5 +1,5 @@
 ﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
-using SD_SE_2.Domain.Services.Interfaces;
+using SD_SE_2.BaseCatalogue.Services.Interfaces;
 
 namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands.Category;
 
