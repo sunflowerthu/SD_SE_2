@@ -33,7 +33,7 @@ public class AddCategoryMenuItem(ICategoryFacade categoryFacade) : IMenuItem
                 Console.WriteLine("Invalid category type. Please try again.");
             }
 
-            categoryFacade.AddCategory(name, categoryType);
+            categoryFacade.CreateCategory(name, categoryType);
             Console.WriteLine("Category successfully created!");
         }
         catch (Exception ex)

@@ -24,7 +24,7 @@ public class DeleteCategoryCommand : ICommand
         {
             _operationService.DeleteCategory(_category);
             _executed = true;
-            Console.WriteLine($"[COMMAND] Operation deleted: {_category.Name}");
+            Console.WriteLine($"[COMMAND] Category deleted: {_category.Name}");
         }
     }
 
@@ -34,7 +34,7 @@ public class DeleteCategoryCommand : ICommand
         {
             _operationService.AddCategory(_category);
             _executed = false;
-            Console.WriteLine($"[COMMAND] Operation deletion undone: {_category.Name}");
+            Console.WriteLine($"[COMMAND] Category deletion undone: {_category.Name}");
         }
     }
 }

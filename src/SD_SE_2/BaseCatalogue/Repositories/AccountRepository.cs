@@ -2,9 +2,9 @@
 
 namespace SD_SE_2.Domain.Repositories;
 
-public class BankAccountRepository : BaseRepository<BankAccount>, IBankAccountRepository
+public class AccountRepository : BaseRepository<BankAccount>, IBankAccountRepository
 {
-    public BankAccountRepository() : base("BankAccount") { }
+    public AccountRepository() : base("BankAccount") { }
 
     protected override string GetEntityDisplayName(BankAccount entity)
     {

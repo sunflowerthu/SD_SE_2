@@ -7,4 +7,5 @@ public interface IAccountService
     void AddAccount(BankAccount account);
     void UpdateAccount(BankAccount account);
     void DeleteAccount(BankAccount account);
+    BankAccount GetAccountById(Guid accountId);
 }

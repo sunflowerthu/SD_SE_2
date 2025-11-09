@@ -4,7 +4,7 @@ using SD_SE_2.Domain.Repositories;
 
 namespace SD_SE_2.Domain.Factories;
 
-public class OperationFactory(BankAccountRepository bankAccountRepository, CategoryRepository categoryRepository)
+public class OperationFactory(AccountRepository accountRepository, CategoryRepository categoryRepository)
     : IOperationFactory
 {
     public Operation CreateOperation(OperationType type, Guid accountId, decimal amount, Guid categoryId,
@@ -20,7 +20,7 @@ public class OperationFactory(BankAccountRepository bankAccountRepository, Categ
             throw new ArgumentNullException(nameof(description));
         }
 
-        if (!bankAccountRepository.Exists(accountId))
+        if (!accountRepository.Exists(accountId))
         {
             throw new ArgumentException($"Account with id {accountId} does not exist");
         }

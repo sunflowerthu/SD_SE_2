@@ -14,7 +14,7 @@ public class CategoryFacade(
     ICommandManager commandManager
     ) : ICategoryFacade
 {
-    public void AddCategory(string name, CategoryType categoryType)
+    public void CreateCategory(string name, CategoryType categoryType)
     {
         var category = categoryFactory.CreateCategory(name, categoryType);
         var addCategoryCommand = new AddCategoryCommand(category, categoryService);

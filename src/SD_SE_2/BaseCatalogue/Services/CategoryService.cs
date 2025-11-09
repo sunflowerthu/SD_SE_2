@@ -49,8 +49,8 @@ public class CategoryService(
     {
         try
         {
-            var operation = categoryRepository.GetById(categoryId);
-            return operation;
+            var category = categoryRepository.GetById(categoryId);
+            return category;
         }
         catch (Exception ex)
         {

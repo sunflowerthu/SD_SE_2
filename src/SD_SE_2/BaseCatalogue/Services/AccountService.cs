@@ -40,4 +40,17 @@ public class AccountService(
             throw new NullReferenceException("Account not found");
         }
     }
+    
+    public BankAccount GetAccountById(Guid accountId)
+    {
+        try
+        {
+            var account = accountRepository.GetById(accountId);
+            return account;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }

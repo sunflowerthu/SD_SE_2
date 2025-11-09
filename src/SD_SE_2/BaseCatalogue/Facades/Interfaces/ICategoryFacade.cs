@@ -4,7 +4,7 @@ namespace SD_SE_2.Facades;
 
 public interface ICategoryFacade
 {
-    public void AddCategory(string name, CategoryType categoryType);
+    public void CreateCategory(string name, CategoryType categoryType);
     void DeleteCategory(Guid categoryId);
     void EditCategory(Guid categoryId, string? newName, CategoryType? newType);
 }
