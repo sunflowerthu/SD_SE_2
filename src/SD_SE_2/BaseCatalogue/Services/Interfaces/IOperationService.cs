@@ -8,4 +8,5 @@ public interface IOperationService
     void UpdateOperation(Operation operation);
     void DeleteOperation(Operation operation);
     Operation GetOperationById(Guid operationId);
+    IEnumerable<Operation> GetAllOperations();
 }

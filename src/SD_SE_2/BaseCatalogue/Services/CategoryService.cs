@@ -57,4 +57,9 @@ public class CategoryService(
             return null;
         }
     }
+    
+    public IEnumerable<Category> GetAllCategories()
+    {
+        return categoryRepository.GetAll();
+    }
 }

@@ -79,4 +79,9 @@ public class OperationService(
         }
     }
     
+    public IEnumerable<Operation> GetAllOperations()
+    {
+        return operationRepository.GetAll();
+    }
+    
 }

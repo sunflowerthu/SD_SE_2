@@ -51,4 +51,9 @@ public class CategoryFacade(
         var editCommand = new EditCategoryCommand(oldCategory, newCategory, categoryService);
         commandManager.ExecuteCommand(editCommand);
     }
+    
+    public IEnumerable<Category> GetAllCategories()
+    {
+        return categoryService.GetAllCategories();
+    }
 }

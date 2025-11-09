@@ -53,4 +53,8 @@ public class AccountFacade(
         var deleteCommand = new DeleteAccountCommand(account, accountService);
         commandManager.ExecuteCommand(deleteCommand);
     }
+    public IEnumerable<BankAccount> GetAllAccounts()
+    {
+        return accountService.GetAllAccounts();
+    }
 }

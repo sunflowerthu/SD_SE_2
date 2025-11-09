@@ -53,4 +53,9 @@ public class AccountService(
             return null;
         }
     }
+    public IEnumerable<BankAccount> GetAllAccounts()
+    {
+        return accountRepository.GetAll();
+    }
+
 }

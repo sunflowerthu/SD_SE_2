@@ -8,4 +8,5 @@ public interface IAccountService
     void UpdateAccount(BankAccount account);
     void DeleteAccount(BankAccount account);
     BankAccount GetAccountById(Guid accountId);
+    IEnumerable<BankAccount> GetAllAccounts();
 }

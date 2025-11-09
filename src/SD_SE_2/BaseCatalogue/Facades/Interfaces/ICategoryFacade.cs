@@ -1,4 +1,5 @@
-﻿using SD_SE_2.Domain.Enums;
+﻿using SD_SE_2.Domain.Entities;
+using SD_SE_2.Domain.Enums;
 
 namespace SD_SE_2.Facades;
 
@@ -7,4 +8,5 @@ public interface ICategoryFacade
     public void CreateCategory(string name, CategoryType categoryType);
     void DeleteCategory(Guid categoryId);
     void EditCategory(Guid categoryId, string? newName, CategoryType? newType);
+    IEnumerable<Category> GetAllCategories();
 }

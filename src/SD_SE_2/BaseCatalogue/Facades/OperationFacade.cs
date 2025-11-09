@@ -52,4 +52,9 @@ public class OperationFacade(
         var deleteCommand = new DeleteOperationCommand(operation, operationService);
         commandManager.ExecuteCommand(deleteCommand);
     }
+    
+    public IEnumerable<Operation> GetAllOperations()
+    {
+        return operationService.GetAllOperations();
+    }
 }
