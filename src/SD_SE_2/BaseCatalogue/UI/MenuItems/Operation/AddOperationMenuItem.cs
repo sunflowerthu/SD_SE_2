@@ -72,6 +72,5 @@ public class AddOperationMenuItem(
         {
             Console.WriteLine($"Error creating operation: {ex.Message}");
         }
-        
     }
 }

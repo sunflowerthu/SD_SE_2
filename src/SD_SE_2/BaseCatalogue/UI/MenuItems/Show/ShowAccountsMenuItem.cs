@@ -26,11 +26,11 @@ public class ShowAccountsMenuItem(IAccountFacade accountFacade) : IMenuItem
             foreach (var account in accounts)
             {
                 string status = account.IsActive ? "Active" : "Inactive";
-                Console.WriteLine($"{account.Id} | {account.Name} | {account.Balance:C} | {status}");
+                Console.WriteLine($"{account.Id} | {account.Name} | {account.Balance} | {status}");
             }
             
             Console.WriteLine($"\nTotal accounts: {accounts.Count()}");
-            Console.WriteLine($"Total balance: {accounts.Sum(a => a.Balance):C}");
+            Console.WriteLine($"Total balance: {accounts.Sum(a => a.Balance)}");
         }
         catch (Exception ex)
         {

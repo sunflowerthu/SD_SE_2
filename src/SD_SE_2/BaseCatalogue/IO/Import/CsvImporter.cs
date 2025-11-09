@@ -46,9 +46,9 @@ public class CsvImporter(
         {
             var account = new BankAccount
             {
-                Id = Guid.Parse(parts[0]),
-                Name = parts[1].Trim(),
-                Balance = decimal.Parse(parts[2]),
+                Id = Guid.Parse(parts[1]),
+                Name = parts[2].Trim(),
+                Balance = decimal.Parse(parts[3]),
             };
 
             accountRepository.Add(account);
@@ -62,7 +62,7 @@ public class CsvImporter(
 
     private void ParseCategory(string[] parts)
     {
-        if (parts.Length != 3)
+        if (parts.Length != 4)
         {
             throw new ArgumentException($"Invalid category data format. Expected 3 parts, got {parts.Length}");
         }
@@ -71,9 +71,9 @@ public class CsvImporter(
         {
             var category = new Category
             {
-                Id = Guid.Parse(parts[0]),
-                Name = parts[1].Trim(),
-                Type = Enum.Parse<CategoryType>(parts[2])
+                Id = Guid.Parse(parts[1]),
+                Name = parts[2].Trim(),
+                Type = Enum.Parse<CategoryType>(parts[3])
             };
 
             categoryRepository.Add(category);
@@ -87,7 +87,7 @@ public class CsvImporter(
 
     private void ParseOperation(string[] parts)
     {
-        if (parts.Length != 7)
+        if (parts.Length != 8)
         {
             throw new ArgumentException($"Invalid operation data format. Expected 7 parts, got {parts.Length}");
         }
@@ -96,13 +96,13 @@ public class CsvImporter(
         {
             var operation = new Operation
             {
-                Id = Guid.Parse(parts[0]),
-                Date = DateTime.Parse(parts[1]),
-                Amount = decimal.Parse(parts[2]),
-                Type = Enum.Parse<OperationType>(parts[3]),
-                Description = parts[4].Trim(),
-                AccountId = Guid.Parse(parts[5]),
-                CategoryId = Guid.Parse(parts[6])
+                Id = Guid.Parse(parts[1]),
+                Date = DateTime.Parse(parts[2]),
+                Amount = decimal.Parse(parts[3]),
+                Type = Enum.Parse<OperationType>(parts[4]),
+                Description = parts[5].Trim(),
+                AccountId = Guid.Parse(parts[6]),
+                CategoryId = Guid.Parse(parts[7])
             };
 
             operationRepository.Add(operation);

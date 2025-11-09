@@ -16,8 +16,8 @@ public class OperationService(
 {
     public void AddOperation(Operation operation)
     {
-        operationRepository.Add(operation);
         UpdateAccountBalance(operation.AccountId, operation.Amount, operation.Type);
+        operationRepository.Add(operation);
         
         eventPublisher.Publish(new OperationAddedEvent(operation));
     }
@@ -28,8 +28,8 @@ public class OperationService(
         if (oldOperation != null)
         {
             UpdateAccountBalance(oldOperation.AccountId, -oldOperation.Amount, oldOperation.Type);
-            operationRepository.Update(operation);
             UpdateAccountBalance(operation.AccountId, operation.Amount, operation.Type);
+            operationRepository.Update(operation);
             
             eventPublisher.Publish(new OperationUpdatedEvent(oldOperation, operation));
         }

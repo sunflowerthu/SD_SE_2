@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Globalization;
+using Microsoft.Extensions.DependencyInjection;
 using SD_SE_2.BaseCatalogue.Commands;
 using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 using SD_SE_2.BaseCatalogue.Facades;
@@ -34,11 +35,17 @@ class Program
 
     private static IServiceProvider Registration()
     {
+        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         var services = new ServiceCollection();
 
         services.AddSingleton<IOperationRepository, OperationRepository>();
         services.AddSingleton<IAccountRepository, AccountRepository>();
         services.AddSingleton<ICategoryRepository, CategoryRepository>();
+        
+        services.AddTransient<Exporter, CsvExporter>();
+        services.AddTransient<Exporter, JsonExporter>();
+        services.AddTransient<Importer, CsvImporter>();
+        services.AddTransient<Importer, JsonImporter>();
         
         services.AddSingleton<IEventPublisher, EventPublisher>();
         services.AddSingleton<ICommandManager, CommandManager>();
@@ -55,11 +62,6 @@ class Program
         services.AddSingleton<IAccountFactory, AccountFactory>();
         services.AddSingleton<ICategoryFactory, CategoryFactory>();
         services.AddSingleton<IOperationFactory, OperationFactory>();
-        
-        services.AddTransient<CsvExporter>();
-        services.AddTransient<JsonExporter>();
-        services.AddTransient<CsvImporter>();
-        services.AddTransient<JsonImporter>();
         
         services.AddTransient<IMenuItem, ExportMenuItem>();
         services.AddTransient<IMenuItem, ImportMenuItem>();

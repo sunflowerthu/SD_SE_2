@@ -7,7 +7,7 @@ public class CsvExporter : Exporter
     public override void Export(BankAccount account)
     {
         StringList.Add(
-            $"BankAccount,{account.Id},{account.Name},{account.IsActive}");
+            $"BankAccount,{account.Id},{account.Name},{account.Balance}");
     }
 
     public override void Export(Category category)
@@ -19,9 +19,9 @@ public class CsvExporter : Exporter
     public override void Export(Operation operation)
     {
         StringList.Add(
-            $"Operation,{operation.Id},{operation.Name}," +
-            $"{operation.Description},{operation.CategoryId}," +
-            $"{operation.AccountId},{operation.Amount}");
+            $"Operation,{operation.Id},{operation.Date}," +
+            $"{operation.Amount},{operation.Type}," +
+            $"{operation.Description},{operation.AccountId},{operation.CategoryId}");
     }
 
     public override void SaveFile(string path, string data)
