@@ -1,8 +1,9 @@
-﻿using SD_SE_2.Domain.Entities;
-using SD_SE_2.Domain.Enums;
-using SD_SE_2.Domain.Repositories;
+﻿using SD_SE_2.BaseCatalogue.Entities;
+using SD_SE_2.BaseCatalogue.Enums;
+using SD_SE_2.BaseCatalogue.Factories.Interfaces;
+using SD_SE_2.BaseCatalogue.Repositories.Interfaces;
 
-namespace SD_SE_2.Domain.Factories;
+namespace SD_SE_2.BaseCatalogue.Factories;
 
 public class OperationFactory(IAccountRepository accountRepository, ICategoryRepository categoryRepository)
     : IOperationFactory

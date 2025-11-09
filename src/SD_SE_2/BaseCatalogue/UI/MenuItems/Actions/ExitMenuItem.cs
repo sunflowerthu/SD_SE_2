@@ -1,6 +1,6 @@
-﻿using SD_SE_2.Domain.UI.MenuDirectory;
+﻿using SD_SE_2.BaseCatalogue.UI.MenuUtility;
 
-namespace SD_SE_2.Domain.UI.MenuItems;
+namespace SD_SE_2.BaseCatalogue.UI.MenuItems.Actions;
 
 public class ExitMenuItem : IMenuItem
 {

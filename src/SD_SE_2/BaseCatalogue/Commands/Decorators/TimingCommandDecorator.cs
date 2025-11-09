@@ -1,19 +1,19 @@
-﻿namespace SD_SE_2.Domain.Commands.Decorators;
+﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 
-public class TimingCommandDecorator : CommandDecorator
+namespace SD_SE_2.BaseCatalogue.Commands.Decorators;
+
+public class TimingCommandDecorator(ICommand decorated) : CommandDecorator(decorated)
 {
-    public TimingCommandDecorator(ICommand decorated) : base(decorated) { }
-
     public override void Execute()
     {
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
         try
         {
-            _decorated.Execute();
+            Decorated.Execute();
         }
         finally
         {
-            Console.WriteLine($"[TIMING] {_decorated.Description} executed in {stopwatch.ElapsedMilliseconds}ms");
+            Console.WriteLine($"[TIMING] {Decorated.Description} executed in {stopwatch.ElapsedMilliseconds}ms");
         }
     }
 
@@ -22,11 +22,11 @@ public class TimingCommandDecorator : CommandDecorator
         var stopwatch = System.Diagnostics.Stopwatch.StartNew();
         try
         {
-            _decorated.Undo();
+            Decorated.Undo();
         }
         finally
         {
-            Console.WriteLine($"[TIMING] {_decorated.Description} undone in {stopwatch.ElapsedMilliseconds}ms");
+            Console.WriteLine($"[TIMING] {Decorated.Description} undone in {stopwatch.ElapsedMilliseconds}ms");
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿using SD_SE_2.Domain.Enums;
+﻿using SD_SE_2.BaseCatalogue.Enums;
+using SD_SE_2.BaseCatalogue.IO.Export;
 using SD_SE_2.Domain.InputOutput;
 
-namespace SD_SE_2.Domain.Entities;
+namespace SD_SE_2.BaseCatalogue.Entities;
 
 public class Category : Entity, IExportable
 {

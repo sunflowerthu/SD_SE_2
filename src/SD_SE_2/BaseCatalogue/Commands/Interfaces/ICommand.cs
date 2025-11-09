@@ -1,4 +1,4 @@
-﻿namespace SD_SE_2.Domain.Commands;
+﻿namespace SD_SE_2.BaseCatalogue.Commands.Interfaces;
 
 public interface ICommand
 {

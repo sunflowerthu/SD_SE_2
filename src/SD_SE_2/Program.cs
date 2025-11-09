@@ -1,19 +1,26 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SD_SE_2.BaseCatalogue.Commands;
+using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 using SD_SE_2.BaseCatalogue.Facades;
-using SD_SE_2.BaseCatalogue.UI.MenuItems;
+using SD_SE_2.BaseCatalogue.Facades.Interfaces;
+using SD_SE_2.BaseCatalogue.Factories;
+using SD_SE_2.BaseCatalogue.Factories.Interfaces;
+using SD_SE_2.BaseCatalogue.IO.Export;
+using SD_SE_2.BaseCatalogue.IO.Import;
+using SD_SE_2.BaseCatalogue.Observers.Handlers;
+using SD_SE_2.BaseCatalogue.Observers.Publisher;
+using SD_SE_2.BaseCatalogue.Repositories;
+using SD_SE_2.BaseCatalogue.Repositories.Interfaces;
+using SD_SE_2.BaseCatalogue.UI.MenuItems.Account;
+using SD_SE_2.BaseCatalogue.UI.MenuItems.Actions;
+using SD_SE_2.BaseCatalogue.UI.MenuItems.Category;
+using SD_SE_2.BaseCatalogue.UI.MenuItems.IO;
+using SD_SE_2.BaseCatalogue.UI.MenuItems.Operation;
 using SD_SE_2.BaseCatalogue.UI.MenuItems.Show;
-using SD_SE_2.Domain.Commands;
-using SD_SE_2.Domain.Factories;
-using SD_SE_2.Domain.InputOutput;
-using SD_SE_2.Domain.InputOutput.Import;
-using SD_SE_2.Domain.Observers.Handlers;
-using SD_SE_2.Domain.Observers.Publisher;
-using SD_SE_2.Domain.Repositories;
+using SD_SE_2.BaseCatalogue.UI.MenuUtility;
 using SD_SE_2.Domain.Services;
 using SD_SE_2.Domain.Services.Interfaces;
-using SD_SE_2.Domain.UI.MenuDirectory;
-using SD_SE_2.Domain.UI.MenuItems;
-using SD_SE_2.Facades;
+
 
 namespace SD_SE_2;
 

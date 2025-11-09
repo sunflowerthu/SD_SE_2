@@ -1,6 +1,4 @@
-﻿using SD_SE_2.Domain.Entities;
-
-namespace SD_SE_2.Domain.InputOutput.Import;
+﻿namespace SD_SE_2.BaseCatalogue.IO.Import;
 
 public abstract class Importer
 {

@@ -1,4 +1,4 @@
-﻿namespace SD_SE_2.Facades;
+﻿namespace SD_SE_2.BaseCatalogue.Facades.Interfaces;
 
 public interface IDataTransferFacade
 { 

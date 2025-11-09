@@ -1,6 +1,6 @@
-﻿using SD_SE_2.Domain.Entities;
+﻿using SD_SE_2.BaseCatalogue.Entities;
 
-namespace SD_SE_2.Domain.Factories;
+namespace SD_SE_2.BaseCatalogue.Factories.Interfaces;
 
 public interface IAccountFactory
 {

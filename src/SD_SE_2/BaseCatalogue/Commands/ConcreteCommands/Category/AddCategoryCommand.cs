@@ -1,18 +1,17 @@
-﻿using SD_SE_2.Domain.Commands;
-using SD_SE_2.Domain.Entities;
+﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 using SD_SE_2.Domain.Services.Interfaces;
 
-namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands;
+namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands.Category;
 
 public class AddCategoryCommand : ICommand
 {
-    private readonly Category _category;
+    private readonly Entities.Category _category;
     private readonly ICategoryService _categoryService;
     private bool _executed = false;
 
     public string Description => $"Add category: {_category.Name}";
 
-    public AddCategoryCommand(Category category, ICategoryService categoryServiceService)
+    public AddCategoryCommand(Entities.Category category, ICategoryService categoryServiceService)
     {
         _category = category;
         _categoryService = categoryServiceService;

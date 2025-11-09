@@ -1,9 +1,8 @@
-﻿using SD_SE_2.Domain.Entities;
-using SD_SE_2.Domain.Repositories;
-using SD_SE_2.Domain.Services;
+﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
+using SD_SE_2.BaseCatalogue.Entities;
 using SD_SE_2.Domain.Services.Interfaces;
 
-namespace SD_SE_2.Domain.Commands;
+namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands;
 
 public class AddOperationCommand : ICommand
 {

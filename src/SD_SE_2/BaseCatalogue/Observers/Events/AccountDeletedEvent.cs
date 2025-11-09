@@ -1,6 +1,6 @@
-﻿using SD_SE_2.Domain.Entities;
+﻿using SD_SE_2.BaseCatalogue.Entities;
 
-namespace SD_SE_2.Domain.Observers.Events;
+namespace SD_SE_2.BaseCatalogue.Observers.Events;
 
 public class AccountDeletedEvent : DomainEvent
 {

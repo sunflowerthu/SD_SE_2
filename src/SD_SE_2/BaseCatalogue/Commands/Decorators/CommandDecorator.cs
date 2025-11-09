@@ -1,23 +1,25 @@
-﻿namespace SD_SE_2.Domain.Commands.Decorators;
+﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
+
+namespace SD_SE_2.BaseCatalogue.Commands.Decorators;
 
 public abstract class CommandDecorator : ICommand
 {
-    protected readonly ICommand _decorated;
+    protected readonly ICommand Decorated;
 
     protected CommandDecorator(ICommand decorated)
     {
-        _decorated = decorated;
+        Decorated = decorated;
     }
 
-    public virtual string Description => _decorated.Description;
+    public virtual string Description => Decorated.Description;
 
     public virtual void Execute()
     {
-        _decorated.Execute();
+        Decorated.Execute();
     }
 
     public virtual void Undo()
     {
-        _decorated.Undo();
+        Decorated.Undo();
     }
 }

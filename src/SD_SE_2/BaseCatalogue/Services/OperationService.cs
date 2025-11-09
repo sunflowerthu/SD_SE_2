@@ -1,8 +1,8 @@
-﻿using SD_SE_2.Domain.Entities;
-using SD_SE_2.Domain.Enums;
-using SD_SE_2.Domain.Observers.Events;
-using SD_SE_2.Domain.Observers.Publisher;
-using SD_SE_2.Domain.Repositories;
+﻿using SD_SE_2.BaseCatalogue.Entities;
+using SD_SE_2.BaseCatalogue.Enums;
+using SD_SE_2.BaseCatalogue.Observers.Events;
+using SD_SE_2.BaseCatalogue.Observers.Publisher;
+using SD_SE_2.BaseCatalogue.Repositories.Interfaces;
 using SD_SE_2.Domain.Services.Interfaces;
 
 namespace SD_SE_2.Domain.Services;

@@ -1,4 +1,4 @@
-﻿namespace SD_SE_2.Domain.UI.MenuDirectory;
+﻿namespace SD_SE_2.BaseCatalogue.UI.MenuUtility;
 
 public interface IMenuItem
 {

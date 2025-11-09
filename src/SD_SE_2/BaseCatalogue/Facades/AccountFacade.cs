@@ -1,11 +1,9 @@
 ﻿using SD_SE_2.BaseCatalogue.Commands.ConcreteCommands.Account;
-using SD_SE_2.Domain.Commands;
-using SD_SE_2.Domain.Commands.ConcreteCommands.Account;
-using SD_SE_2.Domain.Entities;
-using SD_SE_2.Domain.Factories;
-using SD_SE_2.Domain.Repositories;
+using SD_SE_2.BaseCatalogue.Commands.Interfaces;
+using SD_SE_2.BaseCatalogue.Entities;
+using SD_SE_2.BaseCatalogue.Facades.Interfaces;
+using SD_SE_2.BaseCatalogue.Factories.Interfaces;
 using SD_SE_2.Domain.Services.Interfaces;
-using SD_SE_2.Facades;
 
 namespace SD_SE_2.BaseCatalogue.Facades;
 

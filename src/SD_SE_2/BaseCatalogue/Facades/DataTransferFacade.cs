@@ -1,8 +1,8 @@
-﻿using SD_SE_2.Domain.Entities;
-using SD_SE_2.Domain.InputOutput;
-using SD_SE_2.Domain.InputOutput.Import;
-using SD_SE_2.Domain.Repositories;
-using SD_SE_2.Facades;
+﻿using SD_SE_2.BaseCatalogue.Entities;
+using SD_SE_2.BaseCatalogue.Facades.Interfaces;
+using SD_SE_2.BaseCatalogue.IO.Export;
+using SD_SE_2.BaseCatalogue.IO.Import;
+using SD_SE_2.BaseCatalogue.Repositories.Interfaces;
 
 namespace SD_SE_2.BaseCatalogue.Facades;
 

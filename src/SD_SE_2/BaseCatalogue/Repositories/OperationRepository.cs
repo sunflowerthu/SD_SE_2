@@ -1,7 +1,8 @@
-﻿using SD_SE_2.Domain.Entities;
-using SD_SE_2.Domain.Enums;
+﻿using SD_SE_2.BaseCatalogue.Entities;
+using SD_SE_2.BaseCatalogue.Enums;
+using SD_SE_2.BaseCatalogue.Repositories.Interfaces;
 
-namespace SD_SE_2.Domain.Repositories;
+namespace SD_SE_2.BaseCatalogue.Repositories;
 
 public class OperationRepository : BaseRepository<Operation>, IOperationRepository
 {

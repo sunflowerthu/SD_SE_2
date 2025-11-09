@@ -1,6 +1,7 @@
-﻿using SD_SE_2.Domain.Commands.Decorators;
+﻿using SD_SE_2.BaseCatalogue.Commands.Decorators;
+using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 
-namespace SD_SE_2.Domain.Commands;
+namespace SD_SE_2.BaseCatalogue.Commands;
 
 public class CommandManager : ICommandManager
 {

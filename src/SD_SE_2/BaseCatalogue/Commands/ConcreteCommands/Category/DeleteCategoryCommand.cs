@@ -1,18 +1,17 @@
-﻿using SD_SE_2.Domain.Commands;
-using SD_SE_2.Domain.Entities;
+﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 using SD_SE_2.Domain.Services.Interfaces;
 
-namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands;
+namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands.Category;
 
 public class DeleteCategoryCommand : ICommand   
 {
-    private readonly Category _category;
+    private readonly Entities.Category _category;
     private readonly ICategoryService _operationService;
     private bool _executed = false;
 
     public string Description => $"Delete category: {_category.Name}";
     
-    public DeleteCategoryCommand(Category category, ICategoryService categoryService)
+    public DeleteCategoryCommand(Entities.Category category, ICategoryService categoryService)
     {
         _category = category;
         _operationService = categoryService;

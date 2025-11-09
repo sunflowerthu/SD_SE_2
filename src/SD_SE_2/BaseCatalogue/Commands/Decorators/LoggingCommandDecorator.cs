@@ -1,20 +1,20 @@
-﻿namespace SD_SE_2.Domain.Commands.Decorators;
+﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 
-public class LoggingCommandDecorator : CommandDecorator
+namespace SD_SE_2.BaseCatalogue.Commands.Decorators;
+
+public class LoggingCommandDecorator(ICommand decorated) : CommandDecorator(decorated)
 {
-    public LoggingCommandDecorator(ICommand decorated) : base(decorated) { }
-
     public override void Execute()
     {
-        Console.WriteLine($"[LOG] Executing: {_decorated.Description}");
-        _decorated.Execute();
-        Console.WriteLine($"[LOG] Completed: {_decorated.Description}");
+        Console.WriteLine($"[LOG] Executing: {Decorated.Description}");
+        Decorated.Execute();
+        Console.WriteLine($"[LOG] Completed: {Decorated.Description}");
     }
 
     public override void Undo()
     {
-        Console.WriteLine($"[LOG] Undoing: {_decorated.Description}");
-        _decorated.Undo();
-        Console.WriteLine($"[LOG] Undone: {_decorated.Description}");
+        Console.WriteLine($"[LOG] Undoing: {Decorated.Description}");
+        Decorated.Undo();
+        Console.WriteLine($"[LOG] Undone: {Decorated.Description}");
     }
 }

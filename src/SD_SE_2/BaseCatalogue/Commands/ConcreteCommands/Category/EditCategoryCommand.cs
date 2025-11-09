@@ -1,19 +1,18 @@
-﻿using SD_SE_2.Domain.Commands;
-using SD_SE_2.Domain.Entities;
+﻿using SD_SE_2.BaseCatalogue.Commands.Interfaces;
 using SD_SE_2.Domain.Services.Interfaces;
 
-namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands;
+namespace SD_SE_2.BaseCatalogue.Commands.ConcreteCommands.Category;
 
 public class EditCategoryCommand : ICommand
 {
-    private readonly Category _oldCategory;
-    private readonly Category _newCategory;
+    private readonly Entities.Category _oldCategory;
+    private readonly Entities.Category _newCategory;
     private readonly ICategoryService _categoryService;
     private bool _executed = false;
 
     public string Description => $"Edit category: {_oldCategory.Name} -> {_newCategory.Name}";
 
-    public EditCategoryCommand(Category oldCategory, Category newCategory, ICategoryService categoryService)
+    public EditCategoryCommand(Entities.Category oldCategory, Entities.Category newCategory, ICategoryService categoryService)
     {
         _oldCategory = oldCategory;
         _newCategory = newCategory;

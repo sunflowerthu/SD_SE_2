@@ -1,7 +1,7 @@
-﻿using SD_SE_2.Domain.Observers.Events;
-using SD_SE_2.Domain.Observers.Publisher;
+﻿using SD_SE_2.BaseCatalogue.Observers.Events;
+using SD_SE_2.BaseCatalogue.Observers.Publisher;
 
-namespace SD_SE_2.Domain.Observers.Handlers;
+namespace SD_SE_2.BaseCatalogue.Observers.Handlers;
 
 public class NotificationHandler
 {

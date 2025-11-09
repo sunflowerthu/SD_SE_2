@@ -1,8 +1,7 @@
-﻿using SD_SE_2.Domain.Services.Interfaces;
-using SD_SE_2.Domain.UI.MenuDirectory;
-using SD_SE_2.Facades;
+﻿using SD_SE_2.BaseCatalogue.Facades.Interfaces;
+using SD_SE_2.BaseCatalogue.UI.MenuUtility;
 
-namespace SD_SE_2.Domain.UI.MenuItems;
+namespace SD_SE_2.BaseCatalogue.UI.MenuItems.Operation;
 
 public class DeleteOperationMenuItem(IOperationFacade operationFacade) : IMenuItem
 {

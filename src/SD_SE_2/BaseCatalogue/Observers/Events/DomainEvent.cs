@@ -1,4 +1,4 @@
-﻿namespace SD_SE_2.Domain.Observers.Events;
+﻿namespace SD_SE_2.BaseCatalogue.Observers.Events;
 
 public abstract class DomainEvent
 {

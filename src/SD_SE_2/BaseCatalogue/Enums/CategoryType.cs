@@ -1,4 +1,4 @@
-﻿namespace SD_SE_2.Domain.Enums;
+﻿namespace SD_SE_2.BaseCatalogue.Enums;
 
 public enum CategoryType
 {

@@ -1,10 +1,9 @@
-﻿using SD_SE_2.Domain.Entities;
-using SD_SE_2.Domain.Repositories;
-
-namespace SD_SE_2.Domain.InputOutput.Import;
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SD_SE_2.BaseCatalogue.Entities;
+using SD_SE_2.BaseCatalogue.Repositories.Interfaces;
+
+namespace SD_SE_2.BaseCatalogue.IO.Import;
 
 public class JsonImporter(
     IAccountRepository accountRepository,

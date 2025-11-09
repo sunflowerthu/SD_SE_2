@@ -1,4 +1,4 @@
-﻿namespace SD_SE_2.Domain.Observers.Publisher;
+﻿namespace SD_SE_2.BaseCatalogue.Observers.Publisher;
 
 public interface IEventPublisher
 {

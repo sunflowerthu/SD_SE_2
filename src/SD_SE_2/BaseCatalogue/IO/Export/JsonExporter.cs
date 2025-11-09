@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SD_SE_2.Domain.Entities;
+using SD_SE_2.BaseCatalogue.Entities;
 
-namespace SD_SE_2.Domain.InputOutput;
+namespace SD_SE_2.BaseCatalogue.IO.Export;
 
 public class JsonExporter : Exporter
 {

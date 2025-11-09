@@ -1,8 +1,8 @@
-﻿using SD_SE_2.Domain.Enums;
-using SD_SE_2.Domain.UI.MenuDirectory;
-using SD_SE_2.Facades;
+﻿using SD_SE_2.BaseCatalogue.Enums;
+using SD_SE_2.BaseCatalogue.Facades.Interfaces;
+using SD_SE_2.BaseCatalogue.UI.MenuUtility;
 
-namespace SD_SE_2.Domain.UI.MenuItems;
+namespace SD_SE_2.BaseCatalogue.UI.MenuItems.Category;
 
 public class AddCategoryMenuItem(ICategoryFacade categoryFacade) : IMenuItem
 {
