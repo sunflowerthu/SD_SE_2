@@ -21,7 +21,6 @@ using SD_SE_2.BaseCatalogue.UI.MenuItems.Operation;
 using SD_SE_2.BaseCatalogue.UI.MenuItems.Show;
 using SD_SE_2.BaseCatalogue.UI.MenuUtility;
 
-
 namespace SD_SE_2;
 
 class Program
