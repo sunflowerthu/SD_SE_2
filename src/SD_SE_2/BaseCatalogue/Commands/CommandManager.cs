@@ -30,6 +30,11 @@ public class CommandManager : ICommandManager
             var command = _undoStack.Pop();
             command.Undo();
             _redoStack.Push(command);
+            Console.WriteLine("Command undone");
+        }
+        else
+        {
+            Console.WriteLine("Too few commands");
         }
     }
 
@@ -40,6 +45,11 @@ public class CommandManager : ICommandManager
             var command = _redoStack.Pop();
             command.Execute();
             _undoStack.Push(command);
+            Console.WriteLine("Command redone");
+        }
+        else
+        {
+            Console.WriteLine("Too few commands");
         }
     }
 
