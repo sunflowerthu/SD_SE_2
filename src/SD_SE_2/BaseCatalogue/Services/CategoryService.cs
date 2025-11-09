@@ -45,4 +45,16 @@ public class CategoryService(
         }
         
     }
+    public Category GetCategoryById(Guid categoryId)
+    {
+        try
+        {
+            var operation = categoryRepository.GetById(categoryId);
+            return operation;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }
