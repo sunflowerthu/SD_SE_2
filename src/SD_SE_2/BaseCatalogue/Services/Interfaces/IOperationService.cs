@@ -7,4 +7,5 @@ public interface IOperationService
     void AddOperation(Operation operation);
     void UpdateOperation(Operation operation);
     void DeleteOperation(Operation operation);
+    Operation GetOperationById(Guid operationId);
 }

@@ -8,7 +8,7 @@ public class Operation : Entity, IExportable
     public OperationType Type { get; init; }
     public Guid AccountId { get; init; }
     public decimal Amount { get; init; }
-    public DateTime Date { get; init; }
+    public DateTime Date { get; set; }
     public string Description { get; init; }
     public Guid CategoryId { get; set; }
 

@@ -65,5 +65,18 @@ public class OperationService(
             accountRepository.Update(account);
         }
     }
+
+    public Operation GetOperationById(Guid operationId)
+    {
+        try
+        {
+            var operation = operationRepository.GetById(operationId);
+            return operation;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     
 }
